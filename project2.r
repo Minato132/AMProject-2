@@ -45,14 +45,14 @@ table <- kable(data.frame(cbind(model = M_select,
                         caption = 'Model Summary'
 )))
 
-print(table)
+#print(table)
 
 
 
 M_main <- lm(I(Y^1.1) ~ E1 + E2 + E3 + E4 + G1 + G2 + G3 + G4 + G5 + G6 + G7 + G8 + G9 + G10 + G11 + G12 + G13 + G14 + G15 + G16 + G17 + G18 + G19 + G20, data = dat)
 temp <- summary(M_main)
 table <- kable(temp$coefficients[abs(temp$coefficients[,4]) <= .001,], caption = 'Sig Coefficients')
-#print(table)
+print(table)
 
 
 
@@ -63,7 +63,7 @@ temp <- summary(M_2stage)
 table <- kable(temp$coefficients[abs(temp$coefficients[,3]) >= 4,],
                 caption = "2nd Step in Linear Regression Model"
 )
-#print(table)
+print(table)
 print("R^2 of our second linear regression with the model")
 print(summary(M_2stage)$adj.r.squared)
 
